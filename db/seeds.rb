@@ -1,4 +1,4 @@
-Collection = Collection.create(name: 'Top 30 Pokemon')
+collection = Collection.create(name: 'Top 30 Pokemon')
 images = ["http://pkmncards.com/wp-content/uploads/charizard-legendary-treasures-ltr-19-ptcgo-1-312x441@2x.jpg",
 "http://pkmncards.com/wp-content/uploads/lucario-black-white-promos-bw85-1-312x443.jpg",
 "http://pkmncards.com/wp-content/uploads/gogoat-xy-promos-xy16-312x439.jpg",
@@ -36,14 +36,15 @@ images = ["http://pkmncards.com/wp-content/uploads/charizard-legendary-treasures
 "http://pkmncards.com/wp-content/uploads/bronzong-phantom-forces-phf-61-312x441@2x.jpg",
 "http://pkmncards.com/wp-content/uploads/seismitoad-ex-furious-fists-frf-106-ptcgo-1-312x441@2x.png"]
 
-30.times do
+images.each do |image_url|
   begin
     Card.create(name: Faker::Pokemon.name,
                 power: Faker::Beer.alcohol,
                 value: Faker::Number.number(3),
                 description: Faker::Hipster.paragraph,
                 kind: ['water', 'air', 'earth', 'fire'].sample,
-                img: images.sample)
+                img: image_url,
+                collection_id: collection.id)
   rescue
     puts 'card tried to be created with dupe img'
   end
