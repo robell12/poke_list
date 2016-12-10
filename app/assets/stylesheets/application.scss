@@ -1,0 +1,26 @@
+/*
+  *= require material_icons
+*/
+
+@import 'materialize';
+
+.nav-wrapper {
+  background-color: #f04024;
+  padding: 0 30px;
+  border-bottom: 1px solid #000;
+}
+
+.btn {
+  background-color: #efd101 !important;
+  color: white;
+}
+
+.btn:hover {
+  background-color: #111414 !important;
+  color: #c60000;
+}
+
+#pokemon {
+  background-color: #217cc3;
+  color: white;
+}
