@@ -36,17 +36,16 @@ images = ["http://pkmncards.com/wp-content/uploads/charizard-legendary-treasures
 "http://pkmncards.com/wp-content/uploads/bronzong-phantom-forces-phf-61-312x441@2x.jpg",
 "http://pkmncards.com/wp-content/uploads/seismitoad-ex-furious-fists-frf-106-ptcgo-1-312x441@2x.png"]
 
-images.each do |image_url|
-  begin
-    Card.create(name: Faker::Pokemon.name,
-                power: Faker::Beer.alcohol,
-                value: Faker::Number.number(3),
-                description: Faker::Hipster.paragraph,
-                kind: ['water', 'air', 'earth', 'fire'].sample,
-                img: image_url,
-                collection_id: collection.id)
-  rescue
-    puts 'card tried to be created with dupe img'
+images.uniq.each do |image_url|
+  card = Card.new(name: Faker::Pokemon.name,
+              power: Faker::Beer.alcohol,
+              value: Faker::Number.number(3),
+              description: Faker::Hipster.paragraph,
+              kind: ['water', 'air', 'earth', 'fire'].sample,
+              img: image_url,
+              collection_id: collection.id)
+  unless card.save
+    puts card.errors.full_messages.to_sentence
   end
 end
 
