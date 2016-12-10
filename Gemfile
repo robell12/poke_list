@@ -12,11 +12,10 @@ gem 'materialize-sass'
 gem 'repack'
 gem 'devise'
 gem 'material_icons'
+gem 'faker'
 
 group :development, :test do
   gem 'pry'
-  gem 'faker'
-
 end
 
 group :development do
