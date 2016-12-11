@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   root 'home#index'
 
   namespace :api do
-    get 'cards', to: 'cards#index'
     get 'collection', to: 'cards#collection'
+    resources :cards
+    post 'add_to_collection', to: 'cards#add_to_collection'
   end
 
   get '*unmmatched_route', to: 'home#index'

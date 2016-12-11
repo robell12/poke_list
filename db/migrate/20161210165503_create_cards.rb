@@ -8,6 +8,7 @@ class CreateCards < ActiveRecord::Migration[5.0]
       t.string :description
       t.string :img
       t.belongs_to :collection
+      t.boolean :collected, default_value: false
 
       t.timestamps
     end

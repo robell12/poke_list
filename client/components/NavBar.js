@@ -7,7 +7,7 @@ const NavBar = () => (
     <div className="nav-wrapper">
       <Link to='/' className='brand-logo'>PokeList</Link>
       <ul id="nav-mobile" className="right hide-on-med-and-down">
-        <li><Link to='/collection'>Collections</Link></li>
+        <li><Link to='/UserCollection'>User Collections</Link></li>
         <li><Link to='/cards'>All Pokemon</Link></li>
         <li><Link to='/about'>About</Link></li>
         <li><Link to='http://www.pokemongo.com/' target="_blank">Pokemon-Go</Link></li>

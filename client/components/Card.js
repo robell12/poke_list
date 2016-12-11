@@ -9,8 +9,29 @@ class Card extends Component {
   }
 
   addCard() {
-    
+    console.log('hit this');
+    $.ajax({
+      url: `/api/add_to_collection`,
+      type: 'POST',
+      dataType: 'JSON',
+      data: { card: { collected: true }, id: this.state.card.id}
+    }).done( card => {
+    }).fail( data => {
+      console.log(data)
+    })
   }
+
+  // removeCard() {
+  //   // todo make the ajax call to remove card from collection
+  // }
+
+  // displayActions() {
+  //   if(this.props.userCollection){
+  //     return(<button className='btn' onClick={ () => {this.removeCard(card.id)} }>Remove From Collection</button>)
+  //   } else {
+  //     return(<button className='btn' onClick={ () => {this.addCard(card.id)} }>Add To Collection</button>)
+  //   }
+  // }
 
   render() {
     let card = this.state.card
@@ -25,7 +46,7 @@ class Card extends Component {
             <br/>
           </div>
           <div className='card-action center'>
-            <button className='btn' onClick={ () => {this.props.addCard(card.id)} }>Add To Collection</button>
+            <button className='btn' onClick={ () => {this.addCard(card.id)} }>Add To Collection</button>
           </div>
           <div className="card-reveal" id='pokemon'>
             <span className="card-title">Description<i className="material-icons right">close</i></span>

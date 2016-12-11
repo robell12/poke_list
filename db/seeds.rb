@@ -37,7 +37,7 @@ images = ["http://pkmncards.com/wp-content/uploads/charizard-legendary-treasures
 "http://pkmncards.com/wp-content/uploads/seismitoad-ex-furious-fists-frf-106-ptcgo-1-312x441@2x.png"]
 
 images.uniq.each do |image_url|
-  card = collection.cards.new(name: Faker::Pokemon.name,
+  card = Card.new(name: Faker::Pokemon.name,
               power: Faker::Beer.alcohol,
               value: Faker::Number.number(3),
               description: Faker::Hipster.paragraph,

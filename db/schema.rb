@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20161210170134) do
     t.string   "description"
     t.string   "img"
     t.integer  "collection_id"
+    t.boolean  "collected"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["collection_id"], name: "index_cards_on_collection_id", using: :btree
